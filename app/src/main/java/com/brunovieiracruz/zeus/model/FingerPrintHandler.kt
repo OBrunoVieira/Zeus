@@ -41,11 +41,11 @@ class FingerPrintHandler(context: Context,
     }
 
     override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
-        callback.onError("Authentication error\n$errString")
+        callback.onError("$errString")
     }
 
     override fun onAuthenticationHelp(helpCode: Int, helpString: CharSequence?) {
-        callback.onError("Authentication error\n$helpString")
+        callback.onError("$helpString")
     }
 
     override fun onAuthenticationFailed() {

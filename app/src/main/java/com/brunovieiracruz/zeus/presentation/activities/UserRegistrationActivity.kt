@@ -1,5 +1,7 @@
 package com.brunovieiracruz.zeus.presentation.activities
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.annotation.TargetApi
 import android.content.Intent
 import android.os.Build.VERSION.SDK_INT
@@ -10,9 +12,11 @@ import android.security.keystore.KeyPermanentlyInvalidatedException
 import android.security.keystore.KeyProperties
 import android.security.keystore.KeyProperties.*
 import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat.getColor
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompat
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.widget.TextView
 import com.brunovieiracruz.zeus.R
 import com.brunovieiracruz.zeus.model.FingerPrintHandler
 import java.security.KeyStore
@@ -24,6 +28,8 @@ import javax.crypto.SecretKey
 
 class UserRegistrationActivity : BaseActivity(), FingerPrintHandler.Callback {
     private lateinit var viewContentRoot: View
+    private lateinit var textViewFingerPrintHint: TextView
+    private lateinit var textViewFingerPrintError: TextView
 
     private var cryptoObject: FingerprintManagerCompat.CryptoObject? = null
     private var fingerPrintHandler: FingerPrintHandler? = null
@@ -39,6 +45,8 @@ class UserRegistrationActivity : BaseActivity(), FingerPrintHandler.Callback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_registration)
         viewContentRoot = findViewById(R.id.activity_user_registration_content_root)
+        textViewFingerPrintHint = findViewById(R.id.activity_user_registration_text_view_fingerprint_hint)
+        textViewFingerPrintError = findViewById(R.id.activity_user_registration_text_view_fingerprint_error)
 
         val fingerprintManager = FingerprintManagerCompat.from(this)
         if (SDK_INT >= M && fingerprintManager.isHardwareDetected && fingerprintManager.hasEnrolledFingerprints()) {
@@ -76,7 +84,24 @@ class UserRegistrationActivity : BaseActivity(), FingerPrintHandler.Callback {
     }
 
     override fun onError(stringError: String) {
-        viewContentRoot.setBackgroundColor(getColor(this, android.R.color.holo_red_dark))
+        textViewFingerPrintError.text = stringError
+        textViewFingerPrintError.visibility = VISIBLE
+
+        val objectAnimatorAngle = ObjectAnimator
+                .ofFloat(textViewFingerPrintHint, "rotation", -3f, 3f, 0f).apply {
+                    repeatCount = 3
+                    duration = 100
+                }
+
+        textViewFingerPrintError.postDelayed({
+            textViewFingerPrintError.visibility = GONE
+
+        }, 2000)
+
+        AnimatorSet().apply {
+            play(objectAnimatorAngle)
+            start()
+        }
     }
 
     @TargetApi(M)

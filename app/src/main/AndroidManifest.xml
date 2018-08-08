@@ -20,7 +20,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.activities.AuthUserActivity" />
+        <activity
+            android:name=".presentation.activities.AuthUserActivity"
+            android:theme="@style/Theme.Transparent"
+            android:screenOrientation="nosensor" />
     </application>
 
 </manifest>

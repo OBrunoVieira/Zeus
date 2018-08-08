@@ -38,7 +38,7 @@ class UserRegistrationActivity : BaseActivity(), FingerPrintHandler.Callback {
 
     companion object {
         private const val PROVIDER_KEY = "AndroidKeyStore"
-        private const val KEY_NAME = "WHATEVER"
+        private const val KEY_NAME = "key_name"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

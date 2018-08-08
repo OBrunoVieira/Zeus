@@ -7,8 +7,8 @@ import android.support.v4.hardware.fingerprint.FingerprintManagerCompat
 import android.support.v4.os.CancellationSignal
 
 @TargetApi(M)
-class FingerPrintHandler(context: Context,
-        private val callback: Callback) : FingerprintManagerCompat.AuthenticationCallback() {
+class FingerPrintHandler(context: Context, private val callback: Callback) :
+        FingerprintManagerCompat.AuthenticationCallback() {
 
     private val fingerprintManager: FingerprintManagerCompat = FingerprintManagerCompat.from(context)
     private var cancellationSignal: CancellationSignal? = null
@@ -18,9 +18,6 @@ class FingerPrintHandler(context: Context,
             && fingerprintManager.hasEnrolledFingerprints()
 
     fun startListening(cryptoObject: FingerprintManagerCompat.CryptoObject) {
-//        if (ActivityCompat.checkSelfPermission(context, USE_FINGERPRINT) == PERMISSION_GRANTED) {
-//        }
-
         if (isFingerPrintAuthAvailable) {
             selfCancelled = false
             cancellationSignal = CancellationSignal()

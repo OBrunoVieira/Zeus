@@ -4,10 +4,11 @@
     android:id="@+id/activity_user_registration_content_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@color/colorAccent"
     android:padding="10dp">
 
-    <android.support.v7.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/activity_user_registration_image_view_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,19 +17,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/activity_user_registration_image_view_key"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_circle_black_alpha"
-        android:padding="24dp"
+        android:padding="32dp"
         android:src="@drawable/vector_key"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <TextView
         android:id="@+id/activity_user_registration_text_view_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,16 +39,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activity_user_registration_image_view_key" />
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/activity_user_registration_image_view_fingerprint"
+    <TextView
+        android:id="@+id/activity_user_registration_text_view_fingerprint_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
         android:drawablePadding="10dp"
         android:drawableStart="@drawable/vector_fingerprint"
         android:gravity="center"
         android:text="@string/user_registration_fingerprint_hint"
         android:textColor="@color/white_alpha"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/activity_user_registration_text_view_fingerprint_error"
+        app:layout_constraintEnd_toEndOf="@+id/activity_user_registration_text_view_fingerprint_error"
+        app:layout_constraintStart_toStartOf="@+id/activity_user_registration_text_view_fingerprint_error" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/activity_user_registration_text_view_fingerprint_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="10dp"
+        android:gravity="center"
+        android:text="@string/user_registration_fingerprint_error"
+        android:textColor="@color/fuzzy_wuzzy_brown"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

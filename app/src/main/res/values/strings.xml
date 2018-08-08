@@ -4,6 +4,7 @@
     <!--User Registration Start-->
     <string name="user_registration_fingerprint_title">Confirm your fingerprint to continue</string>
     <string name="user_registration_fingerprint_hint">Touch sensor</string>
+    <string name="user_registration_fingerprint_error">Not recognized!</string>
     <!--User Registration End-->
 
     <!--Auth User Start-->

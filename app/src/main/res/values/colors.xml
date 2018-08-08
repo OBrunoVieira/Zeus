@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#91C753</color>
+    <color name="colorPrimaryDark">#568C30</color>
+    <color name="colorAccent">#353F3E</color>
+
+    <color name="fuzzy_wuzzy_brown">#c75357</color>
+    <color name="black_alpha">#40000000</color>
+    <color name="white_alpha">#BFFFFFFF</color>
+    <color name="azure">#FCFDFD</color>
+</resources>

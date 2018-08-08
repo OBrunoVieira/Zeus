@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Zeus</string>
+
+    <!--User Registration Start-->
+    <string name="user_registration_fingerprint_title">Confirm your fingerprint to continue</string>
+    <string name="user_registration_fingerprint_hint">Touch sensor</string>
+    <!--User Registration End-->
+
+    <!--Auth User Start-->
+    <string name="auth_user_title">You are now authorized!</string>
+    <!--Auth User  End-->
+
+</resources>

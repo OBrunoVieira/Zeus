@@ -15,6 +15,7 @@ buildscript {
     }
 }
 
+ext.arch_components = "1.1.1"
 ext.support_version = "27.1.1"
 ext.play_services_vision = "15.0.2"
 ext.constraint_layout_version = "1.1.2"

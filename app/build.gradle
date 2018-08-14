@@ -23,12 +23,24 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //Support
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support:design:$support_version"
     implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
+
+    //Play Services
     implementation "com.google.android.gms:play-services-vision:$play_services_vision"
 
+    //Arch. Components
+    implementation "android.arch.lifecycle:extensions:$arch_components"
+    implementation "android.arch.lifecycle:runtime:$arch_components"
+    annotationProcessor "android.arch.lifecycle:compiler:$arch_components"
+
+    //Tests
     androidTestImplementation "junit:junit:$junit_version"
     androidTestImplementation "com.android.support.test:runner:$support_test_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core_version"
